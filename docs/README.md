@@ -332,3 +332,14 @@ docker-compose -f docker-compose.initial.yml down
 
 - when you've committed everything needed to your github fork, please share the url with us, so we can review your submission
   
+### How to run
+Step 1 : Run the following Command 
+- docker-compose -f docker-compose.final.yml up --build -d
+Step 2 : Go to frontend & backend and run the following command in both of them
+-npm i
+Step 3 : Run the following command in both the folders
+- npm start
+
+- You can access the website at localhost:3000
+
+- I have observed that after sometime of operation, there happens some loss of data. If this happens, an easy fix is to stop the container and run the docker command again. 
