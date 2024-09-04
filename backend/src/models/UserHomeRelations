@@ -1,0 +1,36 @@
+const { EntitySchema } = require('typeorm');
+
+module.exports = new EntitySchema({
+	name: 'UserHomeRelations',
+	tableName: 'user_home_relations',
+	columns: {
+		home_id: {
+			type: 'int',
+			primary: false,
+			generated: false
+		},
+		user_id: {
+			type: 'int',
+			primary: false,
+			generated: false
+		}
+	},
+	relations: {
+		users: {
+			target: 'User',
+			type: 'many-to-many',
+			joinTable: {
+				name: 'user',
+				joinColumn: {
+					name: 'home_id',
+					referencedColumnName: 'home_id'
+				},
+				inverseJoinColumn: {
+					name: 'user_id',
+					referencedColumnName: 'user_id'
+				}
+			},
+			cascade: true
+		}
+	}
+});
